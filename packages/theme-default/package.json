@@ -1,0 +1,13 @@
+{
+	"name": "@venia/theme-default",
+	"version": "0.0.1",
+	"private": false,
+	"type": "module",
+	"main": "./banner.css",
+	"exports": {
+		"./banner.css": "./banner.css"
+	},
+	"files": [
+		"banner.css"
+	]
+}

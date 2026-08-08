@@ -1,0 +1,276 @@
+/* packages/theme-default/banner.css */
+
+:root {
+	--venia-bg: #1a1a1a;
+	--venia-fg: #f5f5f5;
+	--venia-border: #333;
+	--venia-btn-bg: #2a2a2a;
+	--venia-btn-bg-hover: #3a3a3a;
+	--venia-focus: #6ea8fe;
+	--venia-font: system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--venia-bg: #f5f5f5;
+		--venia-fg: #1a1a1a;
+		--venia-border: #ccc;
+		--venia-btn-bg: #e0e0e0;
+		--venia-btn-bg-hover: #d0d0d0;
+	}
+}
+
+.venia-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.venia-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--venia-bg, #1a1a1a);
+  color: var(--venia-fg, #f5f5f5);
+  border-top: 1px solid var(--venia-border, #333);
+  font-family: var(--venia-font, system-ui, sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.venia-banner.card {
+	left: auto;
+	right: 1rem;
+	bottom: 1rem;
+	width: 400px;
+	border-radius: 6px;
+}
+
+.venia-banner.modal {
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
+
+.venia-banner.modal .venia-wrapper {
+	width: 400px;
+	border-radius: 6px;
+}
+
+.venia-banner p {
+  margin: 0;
+  max-width: 60ch;
+  flex: 1 1 320px;
+}
+
+.venia-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Base button — accept, reject, and customize all inherit from this.
+   No default variant gets extra visual weight; overriding one
+   requires an explicit, deliberate class addition. */
+.venia-btn {
+  appearance: none;
+  border: 1px solid var(--venia-border, #444);
+  background: var(--venia-btn-bg, #2a2a2a);
+  color: inherit;
+  font: inherit;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.venia-btn:hover {
+  background: var(--venia-btn-bg-hover, #3a3a3a);
+}
+
+.venia-btn:focus-visible {
+  outline: 2px solid var(--venia-focus, #6ea8fe);
+  outline-offset: 2px;
+}
+
+/* "Customize" is the only intentional visual distinction —
+   less prominent than accept/reject, since it's a third path,
+   not a dismiss. It should never look like a close button
+   or auto-dismiss trigger. */
+.venia-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.venia-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.venia-customize {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+	background: var(--venia-bg, #1a1a1a);
+	color: var(--venia-fg, #f5f5f5);
+	font-family: var(--venia-font, system-ui, sans-serif);
+	font-size: 0.9375rem;
+	line-height: 1.4;
+	padding: 1.25rem 1.5rem;
+}
+
+.venia-back {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  opacity: 0.8;
+}
+
+.venia-back:hover {
+  opacity: 1;
+}
+
+.venia-category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.venia-category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--venia-border, #333);
+}
+
+.venia-category-row:last-child {
+  border-bottom: none;
+}
+
+.venia-category-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.venia-category-label {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.venia-category-desc {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+}
+
+/* Toggle switch */
+.venia-toggle {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid var(--venia-border, #444);
+  background: var(--venia-toggle-off, #3a3a3a);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.15s ease;
+}
+
+.venia-toggle[data-checked="true"] {
+  background: var(--venia-toggle-on, #4a9eff);
+}
+
+.venia-toggle[data-locked="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.venia-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+
+.venia-toggle[data-checked="true"] .venia-toggle-thumb {
+  transform: translateX(18px);
+}
+
+.venia-toggle:focus-visible {
+  outline: 2px solid var(--venia-focus, #6ea8fe);
+  outline-offset: 2px;
+}
+
+.venia-customize-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.venia-reset {
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	background: var(--venia-btn-bg, #2a2a2a);
+	color: var(--venia-fg, #f5f5f5);
+	border: 1px solid var(--venia-border, #444);
+	padding: 0.5rem 1rem;
+	border-radius: 6px;
+	font: inherit;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+@media (max-width: 480px) {
+  .venia-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  .venia-actions {
+    flex-direction: column;
+  }
+
+  .venia-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Respect reduced motion preference for the banner's entrance transition,
+   if you animate it in from VeniaProvider */
+@media (prefers-reduced-motion: reduce) {
+  .venia-banner {
+    transition: none;
+  }
+}
