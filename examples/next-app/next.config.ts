@@ -1,11 +1,5 @@
-import type { NextConfig } from "next";
-import path from "path";
+import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  transpilePackages: ['@venia/react', '@venia/core', '@venia/theme-default'],
-  turbopack: {
-    root: path.resolve(__dirname, "../.."),
-  }
-};
+const nextConfig: NextConfig = {}
 
-export default nextConfig;
+export default nextConfig

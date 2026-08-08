@@ -1,20 +1,30 @@
 {
-	"name": "venia",
-	"private": true,
-	"workspaces": [
-		"packages/*",
-		"examples/*"
-	],
-	"dependencies": {
-		"@venia/core": "workspace:*",
-		"@venia/react": "workspace:*",
-		"@venia/theme-default": "workspace:*"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	},
-	"scripts": {
-		"build": "bun run --filter='./packages/*' build",
-		"dev": "bun run --filter='./examples/next-app' dev"
-	}
+  "name": "venia",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter='./packages/*' build",
+    "dev": "bun run --filter='./packages/*' dev",
+    "dev:next": "bun run --filter='./examples/next-app' dev",
+    "lint": "oxlint . && oxfmt --check",
+    "lint:fix": "oxlint . --fix && oxfmt --write",
+    "format": "oxfmt --check",
+    "format:write": "oxfmt --write"
+  },
+  "dependencies": {
+    "@venia/core": "workspace:*",
+    "@venia/react": "workspace:*",
+    "@venia/theme-default": "workspace:*",
+    "lucide-react": "^1.30.0"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }

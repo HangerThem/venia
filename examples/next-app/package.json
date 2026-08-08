@@ -9,11 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@venia/react": "workspace:*",
+    "@venia/theme-default": "workspace:*",
     "next": "16.3.0",
     "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "@venia/react": "workspace:*",
-    "@venia/theme-default": "workspace:*"
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

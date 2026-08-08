@@ -8,5 +8,5 @@ export default function Home() {
         This is a sample Next.js application demonstrating the Venia consent management system.
       </p>
     </main>
-  );
+  )
 }

@@ -4,7 +4,7 @@ import { Cookie } from 'lucide-react'
 
 import type { ConsentStore } from '@venia/core'
 
-export function ConsentBanner({ store }: { store: ConsentStore }) {
+export function ConsentModal({ store }: { store: ConsentStore }) {
   return (
     <div className="venia-banner" role="dialog" aria-label="Cookie consent">
       <div className="venia-wrapper">
