@@ -7,20 +7,20 @@ import type { VeniaConfig, ConsentState } from '@venia/core'
 
 import { ConsentComponent } from './components/ConsentComponent'
 
-export const VeniaContext = createContext<{
+type VeniaContextType = {
   store: ConsentStore
   consent: ConsentState | null
-} | null>(null)
+}
 
-export function VeniaProvider({
-  config,
-  children,
-  mode = 'banner',
-}: {
+export const VeniaContext = createContext<VeniaContextType | null>(null)
+
+type VeniaProviderProps = {
   config?: VeniaConfig
   children: React.ReactNode
   mode?: 'banner' | 'card' | 'modal'
-}) {
+}
+
+export function VeniaProvider({ config, children, mode = 'banner' }: VeniaProviderProps) {
   const store = useMemo(() => new ConsentStore(config), [config])
   const [consent, setConsent] = useState(store.getConsent())
 
@@ -32,7 +32,7 @@ export function VeniaProvider({
     }
   }, [store])
 
-  const value = useMemo(() => ({ store, consent }), [store, consent])
+  const value = useMemo<VeniaContextType>(() => ({ store, consent }), [store, consent])
 
   return (
     <VeniaContext.Provider value={value}>
