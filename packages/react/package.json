@@ -1,5 +1,5 @@
 {
-  "name": "@venia/react",
+  "name": "@venia-consent/react",
   "version": "0.0.1",
   "private": false,
   "type": "module",
@@ -19,8 +19,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@venia/core": "workspace:*",
-    "@venia/theme": "workspace:*",
+    "@venia-consent/core": "workspace:*",
+    "@venia-consent/theme": "workspace:*",
     "lucide-react": "^1.30.0"
   },
   "devDependencies": {

@@ -5,9 +5,9 @@
     "": {
       "name": "venia",
       "dependencies": {
-        "@venia/core": "workspace:*",
-        "@venia/react": "workspace:*",
-        "@venia/theme": "workspace:*",
+        "@venia-consent/core": "workspace:*",
+        "@venia-consent/react": "workspace:*",
+        "@venia-consent/theme": "workspace:*",
       },
       "devDependencies": {
         "oxfmt": "^0.62.0",
@@ -21,7 +21,7 @@
       "name": "examples",
       "version": "0.1.0",
       "dependencies": {
-        "@venia/react": "workspace:*",
+        "@venia-consent/react": "workspace:*",
         "next": "16.3.0",
         "react": "19.2.8",
         "react-dom": "19.2.8",
@@ -38,15 +38,15 @@
       },
     },
     "packages/core": {
-      "name": "@venia/core",
+      "name": "@venia-consent/core",
       "version": "0.0.1",
     },
     "packages/react": {
-      "name": "@venia/react",
+      "name": "@venia-consent/react",
       "version": "0.0.1",
       "dependencies": {
-        "@venia/core": "workspace:*",
-        "@venia/theme": "workspace:*",
+        "@venia-consent/core": "workspace:*",
+        "@venia-consent/theme": "workspace:*",
         "lucide-react": "^1.30.0",
       },
       "devDependencies": {
@@ -59,7 +59,7 @@
       },
     },
     "packages/theme": {
-      "name": "@venia/theme",
+      "name": "@venia-consent/theme",
       "version": "0.0.1",
     },
   },
@@ -418,11 +418,11 @@
 
     "@unrs/resolver-binding-win32-x64-msvc": ["@unrs/resolver-binding-win32-x64-msvc@1.12.2", "", { "os": "win32", "cpu": "x64" }, "sha512-nAB74NfSNKknqQ1RrYj6uz8FcXEomu/MATJZxh/x+BArzN2U3JbOYC0APYzUIGhVY3m5hRxA8VPNdPBoG8txlA=="],
 
-    "@venia/core": ["@venia/core@workspace:packages/core"],
+    "@venia-consent/core": ["@venia-consent/core@workspace:packages/core"],
 
-    "@venia/react": ["@venia/react@workspace:packages/react"],
+    "@venia-consent/react": ["@venia-consent/react@workspace:packages/react"],
 
-    "@venia/theme": ["@venia/theme@workspace:packages/theme"],
+    "@venia-consent/theme": ["@venia-consent/theme@workspace:packages/theme"],
 
     "acorn": ["acorn@8.18.0", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ=="],
 

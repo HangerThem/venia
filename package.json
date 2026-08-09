@@ -1,5 +1,5 @@
 {
-  "name": "venia",
+  "name": "venia-consent",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -15,9 +15,9 @@
     "format:write": "oxfmt --write"
   },
   "dependencies": {
-    "@venia/core": "workspace:*",
-    "@venia/react": "workspace:*",
-    "@venia/theme": "workspace:*"
+    "@venia-consent/core": "workspace:*",
+    "@venia-consent/react": "workspace:*",
+    "@venia-consent/theme": "workspace:*"
   },
   "devDependencies": {
     "oxfmt": "^0.62.0",
