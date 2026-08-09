@@ -2,9 +2,9 @@
 
 import { useMemo, useState } from 'react'
 
-import { ConsentCategory, type ConsentStore } from '@venia/core'
+import { ConsentCategory, type ConsentStore } from '@venia-consent/core'
 
-import { defaultCategories } from '@venia/core'
+import { defaultCategories } from '@venia-consent/core'
 
 export interface ConsentCategoryItem {
 	id: ConsentCategory

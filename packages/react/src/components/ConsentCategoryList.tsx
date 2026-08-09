@@ -1,6 +1,6 @@
 'use client'
 
-import type { ConsentCategory } from '@venia/core'
+import type { ConsentCategory } from '@venia-consent/core'
 
 import type { ConsentCategoryItem } from '../useConsentCategories'
 

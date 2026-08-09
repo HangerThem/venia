@@ -1,4 +1,4 @@
-import type { VeniaConfig } from '@venia/core'
+import type { VeniaConfig } from '@venia-consent/core'
 
 export const veniaConfig: VeniaConfig = {
   categories: ['necessary', 'functional', 'analytics', 'marketing'],

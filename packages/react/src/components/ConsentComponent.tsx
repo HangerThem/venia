@@ -2,7 +2,7 @@
 
 import { Cookie } from 'lucide-react'
 
-import type { ConsentStore } from '@venia/core'
+import type { ConsentStore } from '@venia-consent/core'
 
 import { ConsentBanner } from './ConsentBanner'
 import { ConsentCard } from './ConsentCard'

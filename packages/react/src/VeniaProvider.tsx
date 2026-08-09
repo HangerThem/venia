@@ -2,8 +2,8 @@
 
 import { createContext, useEffect, useState, useMemo } from 'react'
 
-import { ConsentStore, initScriptGate } from '@venia/core'
-import type { VeniaConfig, ConsentState } from '@venia/core'
+import { ConsentStore, initScriptGate } from '@venia-consent/core'
+import type { VeniaConfig, ConsentState } from '@venia-consent/core'
 
 import { ConsentComponent } from './components/ConsentComponent'
 
