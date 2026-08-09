@@ -17,6 +17,7 @@ export interface ScriptDefinition {
 }
 
 export interface VeniaConfig {
+  bannerHeading?: string
   bannerText?: string
   description?: string
   categories?: ConsentCategory[]

@@ -7,7 +7,7 @@
       "dependencies": {
         "@venia/core": "workspace:*",
         "@venia/react": "workspace:*",
-        "@venia/theme-default": "workspace:*",
+        "@venia/theme": "workspace:*",
         "lucide-react": "^1.30.0",
       },
       "devDependencies": {
@@ -23,7 +23,7 @@
       "version": "0.1.0",
       "dependencies": {
         "@venia/react": "workspace:*",
-        "@venia/theme-default": "workspace:*",
+        "@venia/theme": "workspace:*",
         "next": "16.3.0",
         "react": "19.2.8",
         "react-dom": "19.2.8",
@@ -58,8 +58,8 @@
         "react-dom": "^18.2.0",
       },
     },
-    "packages/theme-default": {
-      "name": "@venia/theme-default",
+    "packages/theme": {
+      "name": "@venia/theme",
       "version": "0.0.1",
     },
   },
@@ -422,7 +422,7 @@
 
     "@venia/react": ["@venia/react@workspace:packages/react"],
 
-    "@venia/theme-default": ["@venia/theme-default@workspace:packages/theme-default"],
+    "@venia/theme": ["@venia/theme@workspace:packages/theme"],
 
     "acorn": ["acorn@8.18.0", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ=="],
 

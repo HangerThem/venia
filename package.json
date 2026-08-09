@@ -17,7 +17,7 @@
   "dependencies": {
     "@venia/core": "workspace:*",
     "@venia/react": "workspace:*",
-    "@venia/theme-default": "workspace:*",
+    "@venia/theme": "workspace:*",
     "lucide-react": "^1.30.0"
   },
   "devDependencies": {
