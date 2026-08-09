@@ -79,6 +79,7 @@
 
 .venia-actions {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 0.75rem;
   flex-shrink: 0;

@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       />
       <Script data-venia-category="analytics" type="text/plain" src="/analytics.js" />
       <body className="min-h-full flex flex-col">
-        <VeniaProvider config={veniaConfig} mode="card">
+        <VeniaProvider config={veniaConfig} mode="banner">
           {children}
         </VeniaProvider>
       </body>
