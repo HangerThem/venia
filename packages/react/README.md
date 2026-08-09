@@ -5,7 +5,7 @@ React bindings for [`@venia-consent/core`](../core) — a provider, hooks, and t
 ## Install
 
 ```bash
-bun add @venia-consent/react @venia-consent/core @venia-consent/theme-default
+bun add @venia-consent/react
 ```
 
 `@venia-consent/core` is a dependency, not a peer — you don't need to install it separately, but the default theme is a separate package so you can swap or omit it.
