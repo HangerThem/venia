@@ -17,8 +17,7 @@
   "dependencies": {
     "@venia/core": "workspace:*",
     "@venia/react": "workspace:*",
-    "@venia/theme": "workspace:*",
-    "lucide-react": "^1.30.0"
+    "@venia/theme": "workspace:*"
   },
   "devDependencies": {
     "oxfmt": "^0.62.0",

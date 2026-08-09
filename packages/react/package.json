@@ -1,9 +1,13 @@
 {
   "name": "@venia/react",
   "version": "0.0.1",
+  "private": false,
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -15,7 +19,9 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@venia/core": "workspace:*"
+    "@venia/core": "workspace:*",
+    "@venia/theme": "workspace:*",
+    "lucide-react": "^1.30.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",
