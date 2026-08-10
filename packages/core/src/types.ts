@@ -16,7 +16,7 @@ export interface ScriptDefinition {
   category: ConsentCategory
 }
 
-export interface VeniaConfig {
+export interface VeniaConfigObject {
   bannerHeading?: string
   bannerText?: string
   description?: string
@@ -27,3 +27,5 @@ export interface VeniaConfig {
   version?: number
   onChange?: (state: ConsentState) => void
 }
+
+export type VeniaConfig = VeniaConfigObject | string

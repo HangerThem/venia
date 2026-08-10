@@ -15,16 +15,29 @@ type VeniaContextType = {
 export const VeniaContext = createContext<VeniaContextType | null>(null)
 
 type VeniaProviderProps = {
-  config?: VeniaConfig
+  config: VeniaConfig
   children: React.ReactNode
   mode?: 'banner' | 'card' | 'modal'
 }
 
 export function VeniaProvider({ config, children, mode = 'banner' }: VeniaProviderProps) {
-  const store = useMemo(() => new ConsentStore(config), [config])
-  const [consent, setConsent] = useState(store.getConsent())
+  const [store, setStore] = useState<ConsentStore | null>(null)
+  const [consent, setConsent] = useState<ConsentState | null>(null)
 
   useEffect(() => {
+    let cancelled = false
+    ConsentStore.create(config).then((newStore) => {
+      if (cancelled) return
+      setStore(newStore)
+      setConsent(newStore.getConsent())
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [config])
+
+  useEffect(() => {
+    if (!store) return
     initScriptGate(store)
     const unsubscribe = store.onChange(setConsent)
     return () => {
@@ -32,7 +45,14 @@ export function VeniaProvider({ config, children, mode = 'banner' }: VeniaProvid
     }
   }, [store])
 
-  const value = useMemo<VeniaContextType>(() => ({ store, consent }), [store, consent])
+  const value = useMemo<VeniaContextType | null>(
+    () => (store ? { store, consent } : null),
+    [store, consent],
+  )
+
+  if (!store || !value) {
+    return <>{children}</>
+  }
 
   return (
     <VeniaContext.Provider value={value}>

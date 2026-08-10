@@ -1,19 +1,27 @@
-import type { ConsentState, ConsentCategory, VeniaConfig } from './types'
+import type { ConsentState, ConsentCategory, VeniaConfig, VeniaConfigObject } from './types'
 
 const DEFAULT_CATEGORIES: ConsentCategory[] = ['necessary', 'functional', 'analytics', 'marketing']
 
 export class ConsentStore {
   private state: ConsentState | null = null
   private listeners = new Set<(state: ConsentState) => void>()
-  private cookieName: string
-  private version: number
-  private _config: VeniaConfig
 
-  constructor(private config: VeniaConfig = {}) {
-    this.cookieName = config.cookieName ?? 'venia-consent'
-    this.version = config.version ?? 1
-    this._config = config
-    this.state = this.load()
+  private constructor(
+    private _config: VeniaConfigObject,
+    private cookieName: string,
+    private version: number,
+  ) {
+    this.state = this.load();
+  }
+
+  static async create(config: VeniaConfig): Promise<ConsentStore> {
+    if (typeof config === 'string') {
+      const resolved: VeniaConfigObject = await fetch(config)
+        .then((res) => res.json())
+        .catch(() => ({}));
+      return new ConsentStore(resolved, resolved.cookieName ?? 'venia-consent', resolved.version ?? 1);
+    }
+    return new ConsentStore(config, config.cookieName ?? 'venia-consent', config.version ?? 1);
   }
 
   private getStorage(): Storage | null {
@@ -41,7 +49,7 @@ export class ConsentStore {
     }
   }
 
-  getConfig(): VeniaConfig {
+  getConfig(): VeniaConfigObject {
     return this._config
   }
 
