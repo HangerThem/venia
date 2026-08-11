@@ -1,12 +1,12 @@
 'use client'
 
-import type { ConsentCategory } from '@venia-consent/core'
+import type { ConsentCategories, ConsentCategory } from '@venia-consent/core'
 
 import type { ConsentCategoryItem } from '../useConsentCategories'
 
 interface ConsentCategoryListProps {
   categories: ConsentCategoryItem[]
-  selected: Record<ConsentCategory, boolean>
+  selected: ConsentCategories
   onToggle: (categoryId: ConsentCategory, isChecked: boolean) => void
   /** Compact rows for the card surface: label only, no description. */
   compact?: boolean

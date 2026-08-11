@@ -1,4 +1,4 @@
-import type { ConsentState, ConsentCategory, VeniaConfig, VeniaConfigObject } from './types'
+import type { ConsentState, ConsentCategory, VeniaConfig, VeniaConfigObject, ConsentCategories } from './types'
 
 const DEFAULT_CATEGORIES: ConsentCategory[] = ['necessary', 'functional', 'analytics', 'marketing']
 
@@ -61,7 +61,7 @@ export class ConsentStore {
     return this.state !== null
   }
 
-  updateConsent(categories: Record<ConsentCategory, boolean>) {
+  updateConsent(categories: ConsentCategories) {
     this.state = {
       version: this.version,
       categories: { ...categories, necessary: true },
@@ -83,7 +83,7 @@ export class ConsentStore {
         acc[c] = true
         return acc
       },
-      {} as Record<ConsentCategory, boolean>,
+      {} as ConsentCategories,
     )
     this.updateConsent(cats)
   }
@@ -94,7 +94,7 @@ export class ConsentStore {
         acc[c] = c === 'necessary'
         return acc
       },
-      {} as Record<ConsentCategory, boolean>,
+      {} as ConsentCategories,
     )
     this.updateConsent(cats)
   }

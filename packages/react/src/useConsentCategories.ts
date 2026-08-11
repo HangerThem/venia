@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 
-import { ConsentCategory, type ConsentStore } from '@venia-consent/core'
+import { ConsentCategories, ConsentCategory, type ConsentStore } from '@venia-consent/core'
 
 import { defaultCategories } from '@venia-consent/core'
 
@@ -37,7 +37,7 @@ export function useConsentCategories(store: ConsentStore) {
 		)
 	}, [store])
 
-	const [selected, setSelected] = useState<Record<ConsentCategory, boolean>>(
+	const [selected, setSelected] = useState<ConsentCategories>(
 		() =>
 			categories.reduce(
 				(acc, category) => {
@@ -47,7 +47,7 @@ export function useConsentCategories(store: ConsentStore) {
 							: (store.getConsent()?.categories?.[category.id] ?? false)
 					return acc
 				},
-				{} as Record<ConsentCategory, boolean>,
+				{} as ConsentCategories,
 			) ?? {},
 	)
 

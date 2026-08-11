@@ -15,7 +15,7 @@ const runScript = (target: ScriptTarget & { _el?: HTMLScriptElement }) => {
   }
 
   const script = document.createElement('script')
-  script.setAttribute('data-venia-category', target.category)
+  script.setAttribute('data-venia-category', target.category as string)
   script.setAttribute('data-venia-id', target.id)
 
   if (target.attrs) {

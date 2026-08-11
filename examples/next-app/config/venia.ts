@@ -1,11 +1,11 @@
 import type { VeniaConfig } from '@venia-consent/core'
 
 export const veniaConfig: VeniaConfig = {
-  categories: ['necessary', 'functional', 'analytics', 'marketing'],
+  categories: ['necessary', 'functional', 'analytics', 'social'],
   categoryLabels: {
-    necessary: {
-      label: 'Necessary',
-      description: 'These cookies are essential.',
+    social: {
+      label: 'Social',
+      description: 'These cookies are used for social media purposes.',
     },
   },
   scripts: {

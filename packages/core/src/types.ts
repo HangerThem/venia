@@ -1,13 +1,25 @@
-export type ConsentCategory = 'necessary' | 'functional' | 'analytics' | 'marketing'
 
 export interface CategoryMeta {
   label: string
   description: string
 }
 
+interface KnownConsentCategories {
+  necessary: boolean;
+  functional?: boolean;
+  analytics?: boolean;
+  marketing?: boolean;
+}
+
+export interface ConsentCategories extends KnownConsentCategories {
+  [key: string]: boolean | undefined;
+}
+
+export type ConsentCategory = keyof KnownConsentCategories | (string & {});
+
 export interface ConsentState {
   version: number
-  categories: Record<ConsentCategory, boolean>
+  categories: ConsentCategories
   timestamp: number
 }
 

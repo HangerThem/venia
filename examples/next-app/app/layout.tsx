@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { VeniaProvider } from '@venia-consent/react'
-import '@venia-consent/theme/sunset.css'
+import '@venia-consent/theme/nord.css'
 import './globals.css'
 import { veniaConfig } from '@/config/venia'
 import Script from 'next/script'
