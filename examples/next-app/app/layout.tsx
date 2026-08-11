@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { VeniaProvider } from '@venia-consent/react'
-import '@venia-consent/theme/nord.css'
+import { veniaConfig } from '@/venia.config'
+import '@venia-consent/theme/sunset.css'
 import './globals.css'
-import { veniaConfig } from '@/config/venia'
-import Script from 'next/script'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -24,16 +23,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <Script
-        data-venia-category="functional"
-        type="text/plain"
-        dangerouslySetInnerHTML={{
-          __html: "console.log('Log from inline script');",
-        }}
-      />
-      <Script data-venia-category="analytics" type="text/plain" src="/analytics.js" />
       <body className="min-h-full flex flex-col">
-        <VeniaProvider config="/config/venia.json" mode="modal">
+        <VeniaProvider config={veniaConfig} mode="banner">
           {children}
         </VeniaProvider>
       </body>
