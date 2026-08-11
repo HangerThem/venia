@@ -17,7 +17,9 @@
   "dependencies": {
     "@venia-consent/core": "workspace:*",
     "@venia-consent/react": "workspace:*",
-    "@venia-consent/theme": "workspace:*"
+    "@venia-consent/vue": "workspace:*",
+    "@venia-consent/theme": "workspace:*",
+    "@venia-consent/cli": "workspace:*"
   },
   "devDependencies": {
     "oxfmt": "^0.62.0",

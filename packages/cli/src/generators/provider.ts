@@ -1,10 +1,10 @@
 // import * as p from '@clack/prompts';
 
-type Framework = 'next-app-router' | 'next-pages' | 'vite-react' | 'unknown';
+type Framework = 'next-app-router' | 'next-pages' | 'vite-react' | 'vue' | 'unknown'
 
 interface InjectOptions {
-  theme: string;
-  mode: string;
+  theme: string
+  mode: string
 }
 
 /**
@@ -13,11 +13,12 @@ interface InjectOptions {
  * "injected" is reserved for a future AST-based version (see roadmap).
  */
 export function injectProvider(framework: Framework, options: InjectOptions): boolean {
-  return false;
+  return false
 }
 
-export function manualSnippet(options: InjectOptions): string {
-  return `import { VeniaProvider } from '@venia-consent/react';
+export function manualSnippet(framework: Framework, options: InjectOptions): string {
+  if (framework === 'next-app-router') {
+    return `import { VeniaProvider } from '@venia-consent/react';
 import '@venia-consent/theme/${options.theme}.css';
 import { veniaConfig } from '@/venia.config';
 
@@ -31,5 +32,45 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-}`;
+}`
+  } else if (framework === 'next-pages') {
+    return `import { VeniaProvider } from '@venia-consent/react';
+import '@venia-consent/theme/${options.theme}.css';
+import { veniaConfig } from '@/venia.config';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <VeniaProvider config={veniaConfig} mode="${options.mode}">
+      <Component {...pageProps} />
+    </VeniaProvider>
+  );
+}`
+  } else if (framework === 'vite-react') {
+    return `import { VeniaProvider } from '@venia-consent/react';
+import '@venia-consent/theme/${options.theme}.css';
+import { veniaConfig } from '@/venia.config';
+
+export function App() {
+  return (
+    <VeniaProvider config={veniaConfig} mode="${options.mode}">
+      {/* your app */}
+    </VeniaProvider>
+  );
+}`
+  } else if (framework === 'vue') {
+    return `import { VeniaProvider } from '@venia-consent/vue';
+import '@venia-consent/theme/${options.theme}.css';
+import { veniaConfig } from '@/venia.config';
+
+export default {
+  setup() {
+    return () => (
+      <VeniaProvider config={veniaConfig} mode="${options.mode}">
+        {/* your app */}
+      </VeniaProvider>
+    );
+  }
+}`
+  }
+  return ''
 }

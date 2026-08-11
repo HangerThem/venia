@@ -37,7 +37,7 @@ export async function init() {
 			p.log.success(`Added VeniaProvider to your ${framework === 'next-app-router' ? 'layout.tsx' : 'App entry'}`);
 		} else {
 			p.log.warn("Couldn't auto-inject the provider — see the snippet below to add it manually.");
-			p.note(manualSnippet({ theme, mode }), 'Add this to your root layout');
+			p.note(manualSnippet(framework, { theme, mode }), 'Add this to your root layout');
 		}
 	}
 
