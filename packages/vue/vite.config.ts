@@ -5,6 +5,7 @@ import { resolve } from 'path';
 export default defineConfig({
 	plugins: [vue()],
 	build: {
+		emptyOutDir: false,
 		lib: {
 			entry: resolve(__dirname, 'src/index.ts'),
 			formats: ['es'],

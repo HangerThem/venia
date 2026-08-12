@@ -37,5 +37,5 @@ provide(VeniaKey, {
 
 <template>
   <slot />
-  <ConsentComponent v-if="store" :store="store" :mode="mode" />
+  <ConsentComponent v-if="store" :store="store" :consent="consent" :mode="mode" />
 </template>

@@ -9,6 +9,7 @@
     "build": "bun run --filter='./packages/*' build",
     "dev": "bun run --filter='./packages/*' dev",
     "dev:next": "bun run --filter='./examples/next-app' dev",
+    "dev:vue": "bun run --filter='./examples/vue-app' dev",
     "lint": "oxlint . && oxfmt --check",
     "lint:fix": "oxlint . --fix && oxfmt --write",
     "format": "oxfmt --check",
