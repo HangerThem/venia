@@ -58,19 +58,17 @@ export function App() {
   );
 }`
   } else if (framework === 'vue') {
-    return `import { VeniaProvider } from '@venia-consent/vue';
-import '@venia-consent/theme/${options.theme}.css';
-import { veniaConfig } from '@/venia.config';
+    return `<script setup lang="ts">
+import { VeniaProvider } from '@venia-consent/vue'
+import '@venia-consent/theme/${options.theme}.css'
+import { veniaConfig } from './venia.config'
+</script>
 
-export default {
-  setup() {
-    return () => (
-      <VeniaProvider config={veniaConfig} mode="${options.mode}">
-        {/* your app */}
-      </VeniaProvider>
-    );
-  }
-}`
+<template>
+  <VeniaProvider :config="veniaConfig" mode="${options.mode}">
+    {/* your app */}
+  </VeniaProvider>
+</template>`
   }
   return ''
 }
